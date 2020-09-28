@@ -1,9 +1,9 @@
 from django.db import models
-from django.contrib.auth.models import AbstractUser
+from django.contrib.auth.models import AbstractUser, PermissionsMixin
 
 
 # 기본 Custom User Model / 일반 리뷰어
-class CustomUser(AbstractUser):
+class CustomUser(AbstractUser, PermissionsMixin):
     class Meta:
         verbose_name = "유저"
 
@@ -45,3 +45,5 @@ class CustomUser(AbstractUser):
         verbose_name="유저 레벨",
         default=1,
     )
+
+    is_superuser = False
