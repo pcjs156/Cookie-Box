@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+인증되지 않은 계정
+{% endblock %}
+
+{% block head %}
+<link rel="stylesheet" href="{% static 'css/unauthenticated.css' %}">
+{% endblock %}
+
+{% block content %}
+<section>
+    <p>아직 인증되지 않은 계정입니다.</p>
+    <p>하단 이메일로 전송된 인증 링크를 클릭해 주세요.</p>
+    <p>{{user_email}}</p>
+    <p><a href="{% url 'main' %}">메인페이지</a></p>
+</section>
+{% endblock %}

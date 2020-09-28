@@ -1,0 +1,20 @@
+<!-- CSS/HTML 테스트 등에 사용되는 파일입니다. -->
+<!-- 본 HTML 파일과 ../static/css/test.css는 .gitignore에 포함되어 최초로 커밋된 이후로 추적되지 않는 파일이니, 자유롭게 사용하셔도 좋습니다. -->
+
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+테스트 페이지
+{% endblock %}
+
+
+{% block head %}
+<link rel="stylesheet" href="{% static 'css/test.css' %}">
+{% endblock %}
+
+{% block content %}
+<section>
+    <p>테스트 페이지입니다.</p>
+</section>
+{% endblock %}

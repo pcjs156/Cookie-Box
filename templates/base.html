@@ -1,0 +1,31 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Font Awesome -->
+    <script src="https://kit.fontawesome.com/e6fc3f0519.js" crossorigin="anonymous"></script>
+    <!-- Bulma -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css">
+
+    <title>
+        <!-- 웹 페이지 상단 탭에 표시될 제목 -->
+        {% block title %}
+        {% endblock %}
+    </title>
+
+    {% block head %}
+    {% endblock %}
+</head>
+
+<body>
+    <!-- body를 제외한 최상단 태그 블록 : 시맨틱 태그 사용 권장 -->
+    {% block content %}
+    {% endblock %}
+</body>
+
+</html>

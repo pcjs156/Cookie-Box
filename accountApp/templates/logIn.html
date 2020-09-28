@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+로그인 페이지
+{% endblock %}
+
+{% block head %}
+<link rel="stylesheet" href="{% static 'css/logIn.css' %}">
+{% endblock %}
+
+{% block content %}
+<section>
+    <form method="POST">
+        {% csrf_token %}
+        <p>
+            <div>ID</div>
+            {{ form.username }}
+        </p>
+
+        <p>
+            <div>PW</div>
+            {{ form.password }}
+        </p>
+
+        <input type="submit" value="로그인">
+    </form>
+</section>
+{% endblock %}

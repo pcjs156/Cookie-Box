@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+메인 페이지
+{% endblock %}
+
+{% block head %}
+<link rel="stylesheet" href="{% static 'css/main.css' %}">
+{% endblock %}
+
+{% block content %}
+<section>
+    <p>메인 페이지입니다.</p>
+
+    <!-- 로그인 되지 않은 경우 -->
+    {% if not user.is_authenticated %}
+    <p><a href="{% url 'logIn' %}">로그인</a></p>
+    <p><a href="{% url 'signUp' %}">회원가입</a></p>
+    {% else %}
+    <p>접속된 계정 : {{ user.username }}</p>
+    <p><a href="{% url 'logOut' %}">로그아웃</a></p>
+    {% endif %}
+</section>
+{% endblock %}

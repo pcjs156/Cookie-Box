@@ -1,0 +1,78 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+회원가입 페이지
+{% endblock %}
+
+{% block head %}
+<link rel="stylesheet" href="{% static 'css/signUp.css' %}">
+{% endblock %}
+
+{% block content %}
+<section>
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        {% if not valid_username %}
+        <div style="font-size: smaller;">ID/PW 양식을 확인해 주세요.</div>
+        {% endif %}
+
+        <p>
+            <div>
+                ID
+                {% if not valid_username %}
+                <span style="font-size: smaller;">이미 사용중인 ID입니다.</span>
+                {% endif %}
+            </div>
+            {{ form.username }}
+        </p>
+
+        <p>
+            <div>비밀번호</div>
+            {{ form.password1 }}
+        </p>
+
+        <p>
+            <div>
+                비밀번호 확인
+                {% if not valid_pw %}
+                <span style="font-size: smaller;">비밀번호를 다시 확인해 주세요.</span>
+                {% endif %}
+            </div>
+            {{ form.password2 }}
+        </p>
+
+        <p>
+            <div>
+                이메일
+                {% if not valid_email %}
+                <span style="font-size: smaller;">이미 사용중인 이메일입니다.</span>
+                {% endif %}
+            </div>
+            {{ form.email }}
+        </p>
+
+        <p>
+            <div>
+                닉네임
+                {% if not valid_nickname %}
+                <span style="font-size: smaller;">이미 사용중인 닉네임입니다.</span>
+                {% endif %}
+            </div>
+            {{ form.nickname }}
+        </p>
+
+        <p>
+            <div>소개</div>
+            {{ form.introduce }}
+        </p>
+
+        <p>
+            <div>대표 이미지</div>
+            {{ form.image }}
+        </p>
+
+        <input type="submit" value="회원가입">
+    </form>
+</section>
+{% endblock %}

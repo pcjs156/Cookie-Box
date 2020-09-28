@@ -1,0 +1,28 @@
+<!-- 모든 HTML에 공통 적용 될 기본 틀을 기록하는 파일입니다. -->
+<!-- HTML 파일 구조가 변경된다면, 해당 문서도 함께 변경해 주세요. -->
+
+<!-- 각 HTML 파일에 대응하는 같은 이름의 css파일을 앱 내부의 static/css 디렉토리에 생성해 주시고, -->
+<!-- 이외의 디렉토리에도 필요한 경우 마찬가지로 (가능하다면) 대상 HTML 파일의 이름과 같게 파일을 설정해 주세요. -->
+<!-- ex) Cookie-Box/mainApp/templates/EXAMPLE.html <-> Cookie-Box/mainApp/static/css/EXAMPLE.css -->
+
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+페이지 제목(상단 바에 표시될 내용)
+{% endblock %}
+
+{% block head %}
+<!-- <head> 태그 내부의 내용을 포함하는 블록입니다. -->
+<!-- CSS import 등에 사용해 주세요! -->
+<!-- <link rel="stylesheet" href="{% static 'css/_EXAMPLE.css' %}"> -->
+{% endblock %}
+
+<!-- 아래 content 블록은 페이지의 실질적인 내용을 포함하는 블록이며, -->
+<!-- body 태그가 바로 바깥에서 감싸고 있는 구조입니다. -->
+<!-- 가능하면 시맨틱 태그를 이용해주세요. -->
+{% block content %}
+<section>
+    <p>예시 페이지입니다.</p>
+</section>
+{% endblock %}
