@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block title %}
-회원가입 완료!
+인증 완료!
 {% endblock %}
 
 {% block head %}
@@ -11,9 +11,8 @@
 
 {% block content %}
 <section>
-    <p>하단 이메일로 인증 메일이 전송되었습니다.</p>
-    <p>전송된 링크를 클릭해 인증을 완료해 주세요!</p>
-    <p>{{user_email}}</p>
-    <p><a href="{% url 'main' %}">메인페이지</a></p>
+    <p>{{ nickname }}님, 어서오세요!</p>
+    <p>이메일 인증이 완료되었습니다!</p>
+    <p><a href="{% url 'logIn' %}">로그인</a></p>
 </section>
 {% endblock %}

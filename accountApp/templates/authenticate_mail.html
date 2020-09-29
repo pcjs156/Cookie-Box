@@ -1,8 +1,9 @@
 {% autoescape off %}
-안녕하세요
 
-아래 링크를 클릭하면 회원가입 인증이 완료됩니다.
+안녕하세요, 쿠키박스입니다!
+아래 코드를 입력해 인증을 완료해 주세요!
+[ {{ code }} ]
 
-http://{{ domain }}{% url 'activate' uid64=uid token=token %}
+만약 해당 코드를 발급하신 적이 없으시다면, 해당 이메일을 통해 알려주세요!
 
 {% endautoescape %}

@@ -11,6 +11,8 @@ urlpatterns = [
     path('signUp_succeeded/<username>',
          views.signUp_succeeded_view,
          name="signUp_succeeded"),
-    path('active/<uid64>/<token>', views.activate, name="activate"),
     path('signUp/', views.signUp_view, name="signUp"),
+    path('email_modify/<username>',
+         views.email_modify_view,
+         name="email_modify"),
 ]

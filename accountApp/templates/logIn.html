@@ -11,6 +11,9 @@
 
 {% block content %}
 <section>
+    {% if wrong_information %}
+    <p style="color: red;">ID 또는 비밀번호를 다시 확인해 주세요.</p>
+    {% endif %}
     <form method="POST">
         {% csrf_token %}
         <p>

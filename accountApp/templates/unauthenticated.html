@@ -11,9 +11,38 @@
 
 {% block content %}
 <section>
-    <p>아직 인증되지 않은 계정입니다.</p>
-    <p>하단 이메일로 전송된 인증 링크를 클릭해 주세요.</p>
-    <p>{{user_email}}</p>
+    {% if wrong_code %}
+    <!-- 이메일 인증 코드가 틀렸을 경우 나옴 -->
+    <p style="color: red;">틀린 이메일 인증 코드입니다!</p>
+    {% endif %}
+
+    <p>하단 이메일로 전송된 인증 코드를 입력해 주세요.</p>
+    <p>{{ user_email }}</p>
+    <form method="POST">
+        {% csrf_token %}
+        <input type="text" name="auth_code" id="auth_code">
+
+        <input type="submit" value="인증">
+    </form>
+
+    <br>
+
+    <p>만약 인증 코드를 발급받지 못하셨다면, 아래 항목을 확인해 주세요.</p>
+    <p>
+        <div>
+            1. 스팸 메시지함을 확인해 주세요.
+        </div>
+        <div>
+            2. 이메일 주소를 다시 확인해 주세요.
+            만약 잘못 입력하셨다면, <a href="{% url 'email_modify' username %}">이메일을 변경</a>해주세요.
+        </div>
+        <div>
+            3. 인증 코드 분실하셨다면, <a href="">다시 발급</a>해 주세요.
+        </div>
+    </p>
+
+    <br>
+
     <p><a href="{% url 'main' %}">메인페이지</a></p>
 </section>
 {% endblock %}

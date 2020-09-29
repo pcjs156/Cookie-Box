@@ -24,23 +24,14 @@
                 <span style="font-size: smaller;">이미 사용중인 ID입니다.</span>
                 {% endif %}
             </div>
-            {{ form.username }}
+            {{ user_signup_form.username }}
         </p>
 
         <p>
             <div>비밀번호</div>
-            {{ form.password1 }}
+            {{ user_signup_form.password }}
         </p>
 
-        <p>
-            <div>
-                비밀번호 확인
-                {% if not valid_pw %}
-                <span style="font-size: smaller;">비밀번호를 다시 확인해 주세요.</span>
-                {% endif %}
-            </div>
-            {{ form.password2 }}
-        </p>
 
         <p>
             <div>
@@ -49,7 +40,7 @@
                 <span style="font-size: smaller;">이미 사용중인 이메일입니다.</span>
                 {% endif %}
             </div>
-            {{ form.email }}
+            {{ user_signup_form.email }}
         </p>
 
         <p>
@@ -59,17 +50,17 @@
                 <span style="font-size: smaller;">이미 사용중인 닉네임입니다.</span>
                 {% endif %}
             </div>
-            {{ form.nickname }}
+            {{ user_profile_form.nickname }}
         </p>
 
         <p>
             <div>소개</div>
-            {{ form.introduce }}
+            {{ user_profile_form.introduce }}
         </p>
 
         <p>
             <div>대표 이미지</div>
-            {{ form.image }}
+            {{ user_profile_form.image }}
         </p>
 
         <input type="submit" value="회원가입">
