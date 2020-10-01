@@ -37,7 +37,7 @@
             만약 잘못 입력하셨다면, <a href="{% url 'email_modify' username %}">이메일을 변경</a>해주세요.
         </div>
         <div>
-            3. 인증 코드 분실하셨다면, <a href="">다시 발급</a>해 주세요.
+            3. 인증 코드 분실하셨다면, <a href="{% url 'auth_code_reissue' username %}">다시 발급</a>해 주세요.
         </div>
     </p>
 
