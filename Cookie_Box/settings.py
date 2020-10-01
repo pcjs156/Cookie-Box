@@ -25,7 +25,7 @@ def get_secret(setting, secrets=secrets):
 SECRET_KEY = get_secret("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = bool(os.environ.get('DJANGO_DEBUG', True))
 
 ALLOWED_HOSTS = []
 
@@ -64,6 +64,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
 ROOT_URLCONF = 'Cookie_Box.urls'
@@ -182,3 +183,12 @@ EMAIL_PORT = int(get_email_info("EMAIL_PORT"))
 EMAIL_HOST_USER = get_email_info("EMAIL_HOST_USER")
 EMAIL_HOST_PASSWORD = get_email_info("EMAIL_HOST_PASSWORD")
 EMAIL_USE_TLS = True
+
+# Heroku : Update database configuration from $DATABASE_URL
+import dj_database_url
+db_from_env = dj_database_url.config(conn_max_age=500)
+DATABASES['default'].update(db_from_env)
+
+# Heroku 운영환경에서 정적 파일을 관리하기 위해 Whienoise를 사용하는데, 이를 통해 정적파일의 크기를 줄일 수 있다.
+# https://warehouse.python.org/project/whitenoise/
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'

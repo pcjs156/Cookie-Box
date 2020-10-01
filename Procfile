@@ -1,0 +1,1 @@
+web : gunicorn cookiebox.wsgi --log-file -
