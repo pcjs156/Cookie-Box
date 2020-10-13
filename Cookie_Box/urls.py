@@ -8,7 +8,7 @@ import accountApp.urls
 import blogApp.urls
 import mailingApp.urls
 
-from mainApp.views import main_view
+from mainApp.views import intro_view
 
 include_url_patterns = [
     path('', include(mainApp.urls)),
@@ -19,8 +19,8 @@ include_url_patterns = [
 ]
 
 urlpatterns = [
+    path('', intro_view, name="intro"),
     path('admin/', admin.site.urls),
-    path('', main_view, name="main"),
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

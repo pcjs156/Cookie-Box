@@ -16,5 +16,11 @@ def EXAMPLE_view(request):
 # 해당 라인 아래부터 구현을 시작해주세요! =======================
 
 
+# 메인 페이지
 def main_view(request):
     return render(request, 'main.html')
+
+
+# 인트로페이지
+def intro_view(request):
+    return render(request, 'intro.html')
