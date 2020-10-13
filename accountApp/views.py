@@ -10,6 +10,12 @@ from .models import User, UserProfile
 from Cookie_Box.settings import DEBUG
 
 
+# 계정 정보 페이지
+@login_required(login_url='/account/logIn/')
+def account_view(request):
+    return render(request, "account.html")
+
+
 # 인증 코드 재발급을 요청하는 페이지
 # 이미 이메일 인증이 완료된 경우 사용할 수 없음
 # 마지막 인증 코드 재발급, 또는 회원가입으로부터 1시간이 지나야 다시 요청할 수 있음
@@ -91,6 +97,12 @@ def auth_code_reissue_view(request, username: str):
                     content['last_modifying'] = last_auth_code_request
 
     return render(request, 'auth_code_reissue.html', content)
+
+
+# 프로필 수정페이지
+@login_required(login_url='/account/logIn/')
+def edit_profile_view(request):
+    return render(request, "edit_profile.html")
 
 
 # 이메일 주소 변경을 요청하는 페이지
