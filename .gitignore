@@ -1,6 +1,7 @@
 secretKey.json
 email_info.json
 .vscode
+.idea/
 
 media/accountApp/profile_image/**
 !media/accountApp/profile_image/user_default_image.png
