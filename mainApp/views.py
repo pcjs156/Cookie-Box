@@ -3,7 +3,7 @@ from django.shortcuts import render
 # 아래 test/EXAMPLE_view는 개발용 코드입니다. ==================
 
 
-# url은 'http://localhost:8000/text' 입니다.
+# url은 'http://localhost:8000/test' 입니다.
 def test_view(request):
     return render(request, 'test.html')
 

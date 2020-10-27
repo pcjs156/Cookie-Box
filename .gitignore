@@ -1,5 +1,6 @@
 secretKey.json
 email_info.json
+heroku_uri.json
 .vscode
 .idea/
 
