@@ -12,5 +12,9 @@ Cookie-Box
 {% block content %}
 <section>
     <p>인트로 페이지입니다.</p>
+    <ul>
+        <a href="{% url 'main' %}"><li>메인 페이지로</li></a>
+        <a href="{% url 'test' %}"><li>테스트 페이지로</li></a>
+    </ul>
 </section>
 {% endblock %}
