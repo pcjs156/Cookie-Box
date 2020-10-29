@@ -20,6 +20,12 @@
     {% else %}
     <p>접속된 계정 : {{ user.username }}</p>
     <p><a href="{% url 'logOut' %}">로그아웃</a></p>
+    {% if user.is_staff %}
+        <ul>
+            <a href="{% url 'email_test' %}"><li>이메일링 테스트 페이지</li></a>
+        </ul>
     {% endif %}
+    {% endif %}
+
 </section>
 {% endblock %}

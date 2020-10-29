@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+메일링 테스트 페이지: 즉시 보내기
+{% endblock %}
+
+{% block head %}
+<link rel="stylesheet" href="{% static 'css/email_test.css' %}">
+{% endblock %}
+
+{% block content %}
+<section>
+    {% if DEBUG %}
+    <p>디버깅 모드 On</p>
+    <ul>
+        <a href="{% url 'instant_mail_send_test' %}"><li>이메일 테스트: 즉시 보내기</li></a>
+    </ul>
+
+    {% else %}
+    <p>디버깅 모드 Off</p>
+    <a href="{% url 'main' %}"><p>메인으로 가기</p></a>
+    {% endif %}
+</section>
+{% endblock %}

@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+메일링 테스트 페이지: 즉시 보내기
+{% endblock %}
+
+{% block head %}
+<link rel="stylesheet" href="{% static 'css/instant_mail_send_test.css' %}">
+{% endblock %}
+
+{% block content %}
+<section>
+    {% if DEBUG %}
+    <p>디버깅 모드 On</p>
+    <p>하단 입력창에 이메일 주소를 입력하면, 입력된 이메일 주소로 'test_mail.html'이 전송됩니다.</p>
+
+    <form method="POST">
+        {% csrf_token %}
+        <span>이메일 주소: </span>
+        <input name="email_address" id="email_address" type="email" required>
+        <input type="submit" value="전송">
+    </form>
+
+    {% else %}
+    <p>디버깅 모드 Off</p>
+    <a href="{% url 'main' %}"><p>메인으로 가기</p></a>
+    {% endif %}
+</section>
+{% endblock %}
