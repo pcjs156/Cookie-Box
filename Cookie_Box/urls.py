@@ -10,6 +10,8 @@ import mailingApp.urls
 
 from mainApp.views import intro_view
 
+from mailingApp.scheduler import EmailScheduler
+
 include_url_patterns = [
     path('', include(mainApp.urls)),
     path('account/', include(accountApp.urls)),
@@ -25,3 +27,6 @@ urlpatterns = [
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 urlpatterns += include_url_patterns
+
+scheduler = EmailScheduler()
+scheduler.run(19, 32)
